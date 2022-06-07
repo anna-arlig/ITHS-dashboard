@@ -2,8 +2,6 @@
 
 const statics = self.__WB_MANIFEST;
 
-console.log(statics)
-
 self.addEventListener('install', function(event) {
     event.waitUntil(
       caches.open("bananpaj").then(function(cache) {

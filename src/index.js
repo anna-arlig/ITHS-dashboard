@@ -11,8 +11,7 @@ if ('serviceWorker' in navigator) {
   .catch(error =>
   console.log('Error with register service worker.', error)
   );
-
-  }
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
