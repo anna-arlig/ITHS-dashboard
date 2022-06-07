@@ -13,7 +13,6 @@ self.addEventListener('install', function(event) {
   });
 
 self.addEventListener("fetch", event => {
-
     if( navigator.onLine ) { // Note uppercase L
     console.log('Online!');
     } else {
