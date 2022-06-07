@@ -1,6 +1,9 @@
-.main{
-    background-color: #662246;
-    color: white;
-    min-height: 5rem;
-    border: 3px solid yellow;
+.main {
+  background-color: #662246;
+  color: white;
+
+  height: 100%;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
 }

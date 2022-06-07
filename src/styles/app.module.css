@@ -1,8 +1,34 @@
-.flex{
-display: flex;
+:root {
+  --header-height: 8rem;
+}
+.app {
+  min-height: 100vh;
+  width: 100vw;
 }
 
-.app{
-min-height: 100vh;
-width: 100vw;
+.header {
+  height: var(--header-height);
+}
+
+@media only screen and (min-width: 600px) {
+  .slWeathercontainer {
+    width: 100%;
+    height: calc(100vh - var(--header-height));
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .weatherNewscontainer {
+    width: 65%;
+  }
+
+  .weatherWrapper {
+    height: 30vh;
+  }
+  .newsTweetscontainer {
+    height: calc(70vh - var(--header-height));
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
 }
