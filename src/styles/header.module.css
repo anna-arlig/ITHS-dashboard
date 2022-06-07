@@ -1,4 +1,9 @@
-.header{
-    background-color: #662246;
-    color: white
+.main {
+  background-color: #662246;
+  color: white;
+
+  height: 100%;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
 }

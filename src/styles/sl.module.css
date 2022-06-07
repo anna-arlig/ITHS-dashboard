@@ -1,3 +1,9 @@
-.main{
-    background-color: goldenrod;
+.main {
+  background-color: goldenrod;
+}
+
+@media only screen and (min-width: 600px) {
+  .main {
+    width: 35%;
+  }
 }
