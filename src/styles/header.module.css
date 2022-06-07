@@ -1,4 +1,6 @@
-.header{
+.main{
     background-color: #662246;
-    color: white
+    color: white;
+    min-height: 5rem;
+    border: 3px solid yellow;
 }

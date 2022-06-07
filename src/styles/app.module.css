@@ -1,0 +1,8 @@
+.flex{
+display: flex;
+}
+
+.app{
+min-height: 100vh;
+width: 100vw;
+}
