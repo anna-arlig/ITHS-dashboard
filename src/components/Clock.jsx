@@ -1,6 +1,6 @@
 // https://codepen.io/marioweb2008/pen/PoQJpbR
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useCallback } from "react";
 import styles from "../styles/clock.module.css";
 
 const Clock = () => {
@@ -20,13 +20,8 @@ const Clock = () => {
     );
   };
 
-  //initialize the clock in a self-invoking function
-  function loop() {
-    requestAnimFrame(loop);
-    draw();
-  }
   //position the hands
-  function draw() {
+  const draw = useCallback(function () {
     var now = new Date(), //now
       then = new Date(
         now.getFullYear(),
@@ -45,7 +40,14 @@ const Clock = () => {
     hourRef.current.style.webkitTransform =
       "rotate(" + (h * 30 + h / 2) + "deg)";
     minRef.current.style.webkitTransform = "rotate(" + m * 6 + "deg)";
-  }
+  }, [secRef, minRef, hourRef]
+)
+
+  //initialize the clock in a self-invoking function
+  const loop = useCallback(  function() {
+    requestAnimFrame(loop);
+    draw();
+  }, [draw])
 
   // const requestRef = useRef();
 
@@ -59,7 +61,7 @@ const Clock = () => {
       loop();
     }, 10);
     return () => clearInterval(stopInterVal);
-  }, []);
+  }, [loop]);
 
   // useEffect(() => {
   //   requestRef.current = requestAnimationFrame(animate);
