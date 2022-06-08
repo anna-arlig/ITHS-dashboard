@@ -20,7 +20,6 @@ self.addEventListener("fetch", event => {
     console.log('Offline!');
     }
 
-
     event.respondWith(
         caches.open("bananpaj").then(function(cache){
             return caches.match(event.request).then(response => {

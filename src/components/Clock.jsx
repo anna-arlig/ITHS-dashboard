@@ -22,7 +22,7 @@ const Clock = () => {
 
   //position the hands
   const draw = useCallback(function () {
-    var now = new Date(), //now
+    const now = new Date(), //now
       then = new Date(
         now.getFullYear(),
         now.getMonth(),
