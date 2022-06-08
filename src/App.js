@@ -1,7 +1,7 @@
 import "./App.css";
 import styles from "./styles/app.module.css";
 import { Header, Weather, NewsFeed, SL, Tweets } from "./components";
-require('dotenv').config()
+
 
 function App() {
   return (
