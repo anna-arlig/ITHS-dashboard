@@ -22,9 +22,9 @@
     width: 65%;
   }
 
-  .weatherWrapper {
+  /* .weatherWrapper {
     height: 30vh;
-  }
+  } */
   .newsTweetscontainer {
     height: calc(70vh - var(--header-height));
     display: flex;
