@@ -1,19 +1,10 @@
 import styles from "../styles/sl.module.css";
-import {useEffect, useState, useCallback} from 'react'
+import {useEffect, useState} from 'react'
 import * as API from "../api/API.js"
+import SlDepartures from "./SlDepartures";
 
 const SL = () => {
   const [data, setData] = useState(null)
-  // const [filteredData, setFilteredData] = useState(null)
-
-
-  // const doWork = useCallback(() => {
-  //   console.log(data)
-  //   if(!data){ return }
-  //   const timeNow = Date.now()
-  //   const newData = data.Departure.filter(dep => new Date() > timeNow)
-  //   console.log(newData)
-  // }, [data])
 
   useEffect(() => {
     async function fetchData() {
@@ -26,18 +17,12 @@ const SL = () => {
     return () => clearInterval(intervalID)
   }, []);
 
-
-
   return (
     <div className={`${styles.main} main`}>
     <h2 className={styles.header}>Kommande avgångar från Liljeholmen</h2>
-    <div>
-    {data && data.Departure.map(dep => (
-      <p key={dep.JourneyDetailRef + Math.random()}>{dep.name} {dep.direction} {dep.time}</p>
 
-      )
-      )}
-      </div>
+      {data && <SlDepartures list={data} />}
+
       </div>
       );
     };

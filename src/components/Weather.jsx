@@ -3,9 +3,10 @@ import styles from "../styles/weather.module.css";
 import * as API from "../api/API.js"
 
 const WeatherCard = ({ data }) => {
-  const { main, weather } = data;
-  const { temp, temp_min, temp_max } = main;
+  const { main, weather, day } = data;
+  const { temp } = main;
   const { icon } = weather[0];
+
 
   return (
     <>
@@ -13,10 +14,9 @@ const WeatherCard = ({ data }) => {
         <div className="image">
           <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`} alt="" />
         </div>
-        <span className={styles.tempt}>{Math.ceil(temp)}°</span>
         <span className={styles.weather}>{weather[0].main}</span>
-        <span className={styles.max_tempt}>{Math.ceil(temp_max)}°</span>
-        <span className={styles.max_tempt}>{Math.ceil(temp_min)}°</span>
+        <span className={styles.tempt}>{day}</span>
+        <span className={styles.tempt}>{Math.ceil(temp)}°</span>
       </div>
     </>
   );
@@ -33,7 +33,18 @@ const ForecastCards = ({ list }) => {
   );
 };
 
+const days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+
 const Weather = () => {
+
   const [list, setList] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -44,7 +55,12 @@ const Weather = () => {
       const listByDay = response.data.list.filter((day) =>
       day.dt_txt.endsWith("15:00:00")
     );
-    setList(listByDay);
+    const newList = listByDay.map((list) => {
+      const d = new Date(list.dt_txt);
+      return { ...list, day: days[d.getDay()] };
+    });
+    setList(newList);
+
     setLoading(false);
     }
     fetchData();
