@@ -1,5 +1,4 @@
 .main {
-  background-color: aquamarine;
   position: relative;
   transform: scale(0.3) translateX(-400px);
 }
