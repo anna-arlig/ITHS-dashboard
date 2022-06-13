@@ -9,7 +9,6 @@ const SL = () => {
     fetch("sl.json")
       .then((res) => res.json())
       .then((data) => {
-        console.log("departure date: ", data);
         setData(data);
       });
   }, []);

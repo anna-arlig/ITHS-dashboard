@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import styles from "../styles/weather.module.css";
 
 const WeatherCard = ({ data }) => {
-  const { main, weather } = data;
+  const { main, weather, day } = data;
   const { temp, temp_min, temp_max } = main;
   const { icon } = weather[0];
 
@@ -13,6 +13,8 @@ const WeatherCard = ({ data }) => {
         <div className="image">
           <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`} alt="" />
         </div>
+
+        <span>{day}</span>
         <span className={styles.tempt}>{Math.ceil(temp)}°</span>
         <span className={styles.weather}>{weather[0].main}</span>
         <span className={styles.max_tempt}>{Math.ceil(temp_max)}°</span>
@@ -23,6 +25,7 @@ const WeatherCard = ({ data }) => {
 };
 
 const ForecastCards = ({ list }) => {
+  console.log("weather list with days: ", list);
   return (
     <div className={styles.weather_row}>
       <div className={styles.weather_grid}>
@@ -37,6 +40,15 @@ const Weather = () => {
   const [list, setList] = useState(null);
   const [loading, setLoading] = useState(false);
 
+  const days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
   const getForcast = () => {
     setLoading(true);
     // fetch(
@@ -48,7 +60,12 @@ const Weather = () => {
         const listByDay = data.list.filter((day) =>
           day.dt_txt.endsWith("15:00:00")
         );
-        setList(listByDay);
+
+        const newList = listByDay.map((list) => {
+          const d = new Date(list.dt_txt);
+          return { ...list, day: days[d.getDay()] };
+        });
+        setList(newList);
         setLoading(false);
       });
   };
