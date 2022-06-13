@@ -1,11 +1,30 @@
 import styles from "../styles/sl.module.css";
+import {useEffect, useState} from 'react'
+import * as API from "../api/API.js"
+import SlDepartures from "./SlDepartures";
 
 const SL = () => {
+  const [data, setData] = useState(null)
+
+  useEffect(() => {
+    async function fetchData() {
+      const response = await API.getDepartures();
+      setData(response.data)
+    }
+    fetchData();
+
+    const intervalID = setInterval(fetchData, 600000)
+    return () => clearInterval(intervalID)
+  }, []);
+
   return (
     <div className={`${styles.main} main`}>
-      <h1 className={styles.header}>This is SL</h1>
-    </div>
-  );
-};
+    <h2 className={styles.header}>Kommande avgångar från Liljeholmen</h2>
 
-export default SL;
+      {data && <SlDepartures list={data} />}
+
+      </div>
+      );
+    };
+
+    export default SL;
