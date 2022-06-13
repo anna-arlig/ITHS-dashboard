@@ -1,7 +1,7 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import styles from "./styles/app.module.css";
-import { Header, Weather, NewsFeed, SL, Tweets } from "./components";
+import { Header, Weather, NewsFeed, SL, Employee } from "./components";
 
 
 function App() {
@@ -42,8 +42,8 @@ function App() {
           </div>
 
           <div className={`${styles.newsTweetscontainer}`}>
+            <Employee />
             <NewsFeed />
-            <Tweets />
           </div>
         </div>
       </div>
