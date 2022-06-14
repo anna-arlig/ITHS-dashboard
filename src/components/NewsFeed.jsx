@@ -10,51 +10,52 @@ const NewsFeed = () => {
 
   useEffect(() => {
 
-    let intervalID
+
     async function fetchData() {
 
       API.getNews()
       .then(response =>
         {
           setData(response.data)
-        const url = response.data[gistOrder].url
-      API.getSingleNews(url).then(result => {
-        const data = result.data.files
-        const entries = Object.entries(data)
-         const gistName = entries[0][0]
-         const content = entries[0][1]
-           setContent({name: gistName,content: content.content})
-        }).then(
-          intervalID = setInterval(()=>{
-            if(gistOrder < data.length){
-              setGistOrder(gistOrder => gistOrder + 1 )
-            }else{
-              setGistOrder(0)
-            }
-          }, 3000)
-        )
-        })
-    }
-    fetchData();
+          const url = response.data[gistOrder].url
+          API.getSingleNews(url).then(result => {
+            const data = result.data.files
+            const entries = Object.entries(data)
+            const gistName = entries[0][0]
+            const content = entries[0][1]
+            setContent({name: gistName,content: content.content})
+          })
 
 
+          })
+        }
+        fetchData();
 
-    return () => clearInterval(intervalID)
-  }, []);
+      }, [ gistOrder]);
+
+      useEffect(()=>{
+       const intervalID = setInterval(()=>{
+          if(gistOrder < data.length -1){
+            setGistOrder(gistOrder => gistOrder + 1 )
+          }else{
+            setGistOrder(0)
+          }
+        }, 3000)
+        return () => clearInterval(intervalID)
+      }, [gistOrder, data])
 
 
+      return (
+        <div className={`${styles.main} main`}>
+        <h1 className={styles.header}>ITHS News</h1>
+        {content && (
+          <>
+          <h2>{content.name}</h2>
+          <p>{content.content}</p>
+          </>
+          )}
+          </div>
+          );
+        };
 
-  return (
-    <div className={`${styles.main} main`}>
-      <h1 className={styles.header}>ITHS News</h1>
-      {content && (
-      <>
-      <h2>{content.name}</h2>
-      <p>{content.content}</p>
-      </>
-      )}
-    </div>
-  );
-};
-
-export default NewsFeed;
+        export default NewsFeed;
