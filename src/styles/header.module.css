@@ -1,9 +1,14 @@
 .main {
   background-color: #693250;
   color: white;
+  overflow: hidden;
 
   height: 100%;
   padding: 1rem;
   display: flex;
   justify-content: space-between;
+}
+.switchWrapper{
+  transform: scale(.4);
+  position: relative;
 }
