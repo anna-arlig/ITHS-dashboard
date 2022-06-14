@@ -1,5 +1,5 @@
 import styles from "../styles/employee.module.css";
-import {useState, useEffect} from 'react'
+
 
 const user = {
     "gender": "male",
@@ -59,7 +59,7 @@ const user = {
 }
 const Employee = () => {
 
-  const [employee, setEmployee] = useState(user)
+  // const [employee, setEmployee] = useState(user)
 
   // useEffect(()=>{
   //   fetch("https://randomuser.me/api/").then(res => res.json()).then(data => console.log(data.results[0]))
@@ -67,18 +67,18 @@ const Employee = () => {
 
   return (
     <div className={`${styles.main} main`}>
-      {employee && (
+      {user && (
         <div className={styles.card}>
           <h3>Employee of the month!</h3>
           <div className={styles.neonWrapper}>
             <span className={styles.txt}>
-              {employee.name.title}. {employee.name.first} {employee.name.last}
+              {user.name.title}. {user.name.first} {user.name.last}
             </span>
             <span className={styles.gradient}></span>
             <span className={styles.dodge}></span>
           </div>
 
-          <img src={employee.picture.large} className={styles.img} alt="" />
+          <img src={user.picture.large} className={styles.img} alt="" />
           <div className={styles.contributions}>
             <div>
               <h4>2067</h4>
