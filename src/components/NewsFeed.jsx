@@ -48,8 +48,8 @@ const NewsFeed = () => {
         <h1 className={styles.header}>ITHS News</h1>
         {content && (
           <>
-          <h2>{content.name}</h2>
-          <p>{content.content}</p>
+          <h2 className={styles.h2}>{content.name}</h2>
+          <p className={styles.p}>{content.content}</p>
           </>
           )}
           </div>

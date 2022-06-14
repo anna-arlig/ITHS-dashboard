@@ -1,5 +1,18 @@
 .main {
-  background-color: hotpink;
+  background-color: #F0E8EC;
+  padding: 1rem;
+}
+
+.h2{
+padding: 0.5rem;
+}
+
+.p{
+  padding: 1rem;
+}
+
+.header{
+  padding: 1rem;
 }
 
 @media only screen and (min-width: 600px) {
