@@ -1,10 +1,10 @@
 
 import axios from "axios"
-const HOST = process.env.HOST
+
 
 export async function getDepartures(){
 try{
-return await axios.get( `${HOST}.netlify/functions/get-departures`)
+return await axios.get( `/.netlify/functions/get-departures`)
 }
 catch(error){
 console.log(error)
@@ -13,7 +13,7 @@ console.log(error)
 
 export async function getWeather(){
     try{
-    return await axios.get( `${HOST}.netlify/functions/get-weather`)
+    return await axios.get( `$/.netlify/functions/get-weather`)
     }
     catch(error){
     console.log(error)
