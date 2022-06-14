@@ -25,8 +25,6 @@ const NewsFeed = () => {
             const content = entries[0][1]
             setContent({name: gistName,content: content.content})
           })
-
-
           })
         }
         fetchData();
