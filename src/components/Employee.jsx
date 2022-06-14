@@ -78,7 +78,7 @@ const Employee = () => {
             <span className={styles.dodge}></span>
           </div>
 
-          <img src={employee.picture.large} alt="" />
+          <img src={employee.picture.large} className={styles.img} alt="" />
           <div className={styles.contributions}>
             <div>
               <h4>2067</h4>

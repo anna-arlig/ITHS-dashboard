@@ -13,9 +13,7 @@ padding: .5rem;
 
 }
 
-
-
-img{
+.img{
   border-radius: 50%;
   box-shadow: 0 8px 8px rgb(0 0 0 / 20%);
   display: block;
