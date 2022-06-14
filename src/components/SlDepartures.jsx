@@ -15,7 +15,7 @@ const SlDepartures = ({ list }) => {
 
     const goTime = hour + ":" + minute + ":00";
     const relevantTimes = list.Departure.filter((ti) => ti.time > goTime);
-    console.log("relevant times: ", relevantTimes);
+
     setTimes(relevantTimes);
   };
 
@@ -37,7 +37,7 @@ const SlDepartures = ({ list }) => {
         const name = time.name.substring(12)
 
         return(
-      <div>
+      <div key={time.time + time+dir}>
         {time.time} {name} {dir}
       </div>
     )})}
