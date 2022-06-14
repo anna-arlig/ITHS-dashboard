@@ -13,7 +13,7 @@ console.log(error)
 
 export async function getWeather(){
     try{
-    return await axios.get( `$/.netlify/functions/get-weather`)
+    return await axios.get( `/.netlify/functions/get-weather`)
     }
     catch(error){
     console.log(error)
