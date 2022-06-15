@@ -24,7 +24,7 @@ self.addEventListener("fetch", event => {
   if(event.request.url.startsWith("chrome-extention")){
     return
   }
-  console.log("fetching", event.request)
+
     if( navigator.onLine ) {
     console.log('Online!');
     } else {
@@ -34,13 +34,14 @@ self.addEventListener("fetch", event => {
     event.respondWith(
         caches.open("bananpaj").then(function(cache){
             return caches.match(event.request).then(response => {
-                // if(response){return response}
+
 
                 if(!navigator.onLine){
-                    const markup = '<h1>Seems you are offline!.</h1>';
-                    const headers = { 'Content-Type': 'text/html' }
-                    const response = new Response(markup, {headers})
-                    return response
+                  if(response){return response}
+                    // const markup = '<h1>Seems you are offline!.</h1>';
+                    // const headers = { 'Content-Type': 'text/html' }
+                    // const response = new Response(markup, {headers})
+                    // return response
 
                 }else{
                     const result = fetch(event.request)
