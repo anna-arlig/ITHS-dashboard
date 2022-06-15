@@ -2,6 +2,19 @@
   background-color: #F0E8EC
 }
 
+.header{
+  padding: 1rem;
+}
+
+.time{
+ padding: 0.5rem;
+}
+
+.time:nth-child(odd){
+  background-color: #693250;
+  color: white;
+}
+
 @media only screen and (min-width: 600px) {
   .main {
     width: 35%;

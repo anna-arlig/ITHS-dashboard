@@ -38,7 +38,7 @@ const NewsFeed = () => {
           }else{
             setGistOrder(0)
           }
-        }, 3000)
+        }, 60000)
         return () => clearInterval(intervalID)
       }, [gistOrder, data])
 

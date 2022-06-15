@@ -1,5 +1,5 @@
 import React from "react";
-// import styles from "../styles/sl.module.css";
+import styles from "../styles/sl.module.css";
 import { useEffect, useState, useCallback } from "react";
 const SlDepartures = ({ list }) => {
  const [times, setTimes] = useState(null);
@@ -37,7 +37,7 @@ const SlDepartures = ({ list }) => {
         const name = time.name.substring(12)
 
         return(
-      <div key={time.time + time+dir}>
+      <div className={styles.time} key={time.time + time+dir}>
         {time.time} {name} {dir}
       </div>
     )})}

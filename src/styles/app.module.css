@@ -10,6 +10,8 @@
   height: var(--header-height);
 }
 
+
+
 @media only screen and (min-width: 600px) {
   .slWeathercontainer {
     width: 100%;

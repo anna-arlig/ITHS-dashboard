@@ -9,20 +9,16 @@ function App() {
 
   useEffect(() => {
     const showOnline = () => {
-      console.log("Going online");
       setOnlineState(true);
     };
 
     const showOffline = () => {
-      console.log("Going offline");
       setOnlineState(false);
     };
-    console.log("Register");
     window.addEventListener("online", showOnline);
     window.addEventListener("offline", showOffline);
 
     return () => {
-      console.log("Cleanup");
       window.removeEventListener("online", showOnline);
       window.removeEventListener("offline", showOffline);
     };

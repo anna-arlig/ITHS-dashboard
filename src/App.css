@@ -3,3 +3,24 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+@font-face {
+  font-family: "Kommpakt STD regular";
+  src: url("./assets/fonts/KommpaktSTDregular/Purchased_Fonts/LinotypeFonts/Fonts/Kompakt/OpenTypeCFFStd/KompaktLTStd.otf") format(otf);
+}
+@font-face {
+  font-family: "Futura LT";
+  src: url("./assets/fonts/FuturaLT/FuturaLT-Condensed.ttf") format(ttf);
+}
+@font-face {
+  font-family: "Avenir LTS Book";
+  src: url("./assets/fonts/AvenirBook/AvenirLTStd-Book.otf") format(otf);
+}
+@font-face {
+  font-family: "Avenir LTS Heavy";
+  src: url("./assets/fonts/AvenirHeavy/AvenirLTStd-Heavy.otf") format(otf);
+}
+
+h1{
+  font-family: "Avenir LTS Book";
+}

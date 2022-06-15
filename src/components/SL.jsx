@@ -13,7 +13,7 @@ const SL = () => {
     }
     fetchData();
 
-    const intervalID = setInterval(fetchData, 600000)
+    const intervalID = setInterval(fetchData, 300000)
     return () => clearInterval(intervalID)
   }, []);
 
