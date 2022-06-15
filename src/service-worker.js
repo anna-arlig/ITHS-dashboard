@@ -33,8 +33,8 @@ self.addEventListener("fetch", event => {
 
     event.respondWith(
         caches.open("bananpaj").then(function(cache){
-            return caches.match(event.request).then(response => {
-                if(response){return response}
+            // return caches.match(event.request).then(response => {
+            //     if(response){return response}
 
                 if(!navigator.onLine){
                     const markup = '<h1>Seems you are offline!.</h1>';
