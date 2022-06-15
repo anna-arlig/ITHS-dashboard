@@ -3,7 +3,7 @@
 const statics = self.__WB_MANIFEST;
 
 self.addEventListener('install', function(event) {
-  self.skipWaiting();
+
     event.waitUntil(
       caches.open("bananpaj").then(function(cache) {
         return cache.addAll(
@@ -11,12 +11,14 @@ self.addEventListener('install', function(event) {
         );
       })
     );
+    self.skipWaiting();
   });
 
-  // navigator.serviceWorker.getRegistrations().then(function(registrations) {
-  //   for(let registration of registrations) {
-  //    registration.unregister()
-  //  } })
+  self.addEventListener('message', (event) => {
+    if (event.data === 'SKIP_WAITING') {
+        self.skipWaiting();
+    }
+});
 
 self.addEventListener("fetch", event => {
   if(event.request.url.startsWith("chrome-extention")){
