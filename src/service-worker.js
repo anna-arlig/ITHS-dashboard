@@ -13,6 +13,11 @@ self.addEventListener('install', function(event) {
     );
   });
 
+  navigator.serviceWorker.getRegistrations().then(function(registrations) {
+    for(let registration of registrations) {
+     registration.unregister()
+   } })
+
 self.addEventListener("fetch", event => {
   if(event.request.url.startsWith("chrome-extention")){
     return

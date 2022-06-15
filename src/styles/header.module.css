@@ -9,6 +9,14 @@
   display: none;
 }
 
+.logo{
+  display: block;
+}
+
+.mobile{
+  display: none;
+}
+
 .wrapper{
   display: flex;
   justify-content: space-between;
@@ -19,6 +27,16 @@
   .status{
     display: none;
   }
+
+  .logo{
+    display: none;
+  }
+
+  .mobile{
+    display: block;
+    transform: scale(1.2);
+  }
+
   .infobar{
     display: block;
     z-index: 100;
