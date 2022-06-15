@@ -5,7 +5,7 @@ const statics = self.__WB_MANIFEST;
 self.addEventListener('install', function(event) {
   self.skipWaiting();
     event.waitUntil(
-      caches.open("bananpaj").then(function(cache) {
+      caches.delete("bananpaj").then(function(cache) {
         return cache.addAll(
           statics.map(url => url.url)
         );
