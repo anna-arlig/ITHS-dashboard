@@ -1,9 +1,28 @@
 .main {
   background-color: #693250;
   color: white;
-
   height: 100%;
   padding: 1rem;
+}
+
+.infobar{
+  display: none;
+}
+
+.wrapper{
   display: flex;
   justify-content: space-between;
+  height: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  .status{
+    display: none;
+  }
+  .infobar{
+    display: block;
+    z-index: 100;
+    height: 100px;
+  }
+
 }

@@ -98,7 +98,7 @@ const Employee = () => {
             </div>
             <div>
               <h4>7-9 years</h4>
-              <h4>Estimated life</h4>
+              <h4>Estimated life left</h4>
             </div>
           </div>
         </div>

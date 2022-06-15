@@ -5,7 +5,7 @@ import { Header, Weather, NewsFeed, SL, Employee } from "./components";
 
 
 function App() {
-  const [onlineState, setOnlineState] = useState(true);
+  const [onlineState, setOnlineState] = useState(navigator.onLine);
 
   useEffect(() => {
     const showOnline = () => {

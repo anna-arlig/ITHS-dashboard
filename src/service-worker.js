@@ -14,6 +14,9 @@ self.addEventListener('install', function(event) {
   });
 
 self.addEventListener("fetch", event => {
+  if(event.request.url.startsWith("chrome-extention")){
+    return
+  }
     if( navigator.onLine ) { // Note uppercase L
     console.log('Online!');
     } else {
@@ -34,6 +37,7 @@ self.addEventListener("fetch", event => {
                 }else{
                     const result = fetch(event.request)
                     result.then(response => {
+
                         cache.put(event.request, response.clone())
                     })
                     return result
