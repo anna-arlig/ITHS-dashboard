@@ -24,7 +24,8 @@ self.addEventListener("fetch", event => {
   if(event.request.url.startsWith("chrome-extention")){
     return
   }
-    if( navigator.onLine ) { // Note uppercase L
+  console.log("fetching", event.request)
+    if( navigator.onLine ) {
     console.log('Online!');
     } else {
     console.log('Offline!');
