@@ -30,7 +30,7 @@ function App() {
       </div>
 
       <div className={`${styles.slWeathercontainer}`}>
-        <SL />
+        <SL onlineState={onlineState}/>
 
         <div className={`${styles.weatherNewscontainer}`}>
           <div className={styles.weatherWrapper}>
